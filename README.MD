@@ -44,47 +44,57 @@
 
 # Overview of Code    
 Package: com.vikrambala.connectfour:
-    Class: ConnectFour -> Models game state, and has algorithms to check for a winner.
-    Class: Game implements Runnable-> The entry point, where the swing application starts from.
-    Class: GameBoard extends JPanel -> The viewer/controller in the MVC model. 
-    Class: GameMove -> Stores row & column fields. Used to store moves made in a collection
-        in the ConnectFour class. These moves are undone when the undo button is clicked.
-    Class: GameAI -> Runs the minimax AI algorithmn to determine the best moves to make. Information about valuation of
-        board position and strength of moves is printed to the console for debugging. Depth of the AI minimax tree can be 
-        adjusted by adjusting the depth paramneter for the minimaxAlgo() method when it is called in the GameBoard class.
-    Class: LoginServerConnection -> Allows for the user to connect via TCP protocol to the login server. Contains methods to parse 
-        server response codes, as well as act on the responses recieved, whether it be a successful login, information retrieval, or error code. 
-        Will cause pop up messages to appear if error codes from the server are recieved. See com.vikrmabla.connectfour.gameserver package for more details.
+  Class: ConnectFour -> Models game state, and has algorithms to check for a winner.
+  
+  Class: Game implements Runnable-> The entry point, where the swing application starts from.
+  
+  Class: GameBoard extends JPanel -> The viewer/controller in the MVC model. 
+  
+  Class: GameMove -> Stores row & column fields. Used to store moves made in a collection
+      in the ConnectFour class. These moves are undone when the undo button is clicked.
+      
+  Class: GameAI -> Runs the minimax AI algorithmn to determine the best moves to make. Information about valuation of
+      board position and strength of moves is printed to the console for debugging. Depth of the AI minimax tree can be 
+      adjusted by adjusting the depth paramneter for the minimaxAlgo() method when it is called in the GameBoard class.
+      
+  Class: LoginServerConnection -> Allows for the user to connect via TCP protocol to the login server. Contains methods to parse 
+      server response codes, as well as act on the responses recieved, whether it be a successful login, information retrieval, or error code. 
+      Will cause pop up messages to appear if error codes from the server are recieved. See com.vikrmabla.connectfour.gameserver package for more details.
 
 Sub-Package: com.vikrambala.connectfour.accounts
-    Class: Login extends JFrame -> Creates window for user to login into their account
-        or create a new account.
-    Class: CreateAccount extends JFrame -> Pop-up when a user opts to create a new account.
-    Class: LoggedIn -> Wrapper for the boolean value loggedIn. Allows for synchronized access
-        in the Game class, to determine whether or not gameWindow should be displayed as yet.
-        Essentially allows for the gameWindow to stay hidden till a user is logged in. 
+  Class: Login extends JFrame -> Creates window for user to login into their account
+      or create a new account.
+
+  Class: CreateAccount extends JFrame -> Pop-up when a user opts to create a new account.
+
+  Class: LoggedIn -> Wrapper for the boolean value loggedIn. Allows for synchronized access
+      in the Game class, to determine whether or not gameWindow should be displayed as yet.
+      Essentially allows for the gameWindow to stay hidden till a user is logged in. 
 
 
 Sub-Package: com.vikrambala.connectfour.interlude
-    Class: InterludeWindow extends JPanel -> Displays a randomly selected cute meme
-    for five seconds after the user has logged in and the "game loads."
+  Class: InterludeWindow extends JPanel -> Displays a randomly selected cute meme
+  for five seconds after the user has logged in and the "game loads."
 
 Sub-Package: com.vikrambala.connectfour.error
-    Class: ErrorCode -> ErrorCode enum used in LoginFileParser to alert users to errors.
-    Class: ErrorHandler -> Handles all error codes besides ones in LoginFileParser.
-            Errors in LoginFileParser must be handled by the class itself, in order
-            to properly shut down JFrames.
+  Class: ErrorCode -> ErrorCode enum used in LoginFileParser to alert users to errors.
+
+  Class: ErrorHandler -> Handles all error codes besides ones in LoginFileParser.
+          Errors in LoginFileParser must be handled by the class itself, in order
+          to properly shut down JFrames.
 
 Sub-Package: com.vikrambala.connectfour.gameserver
-   Class: LoginServerBackend -> A file which contains the code for the multithreaded back-end server. Uses TCP protocol and Java Server Sockets to
-           establish connections. The server uses an executor service which creates new instances of the inner class, ConnectionWorker, each time a new client                        
-           connects. The file uses the methods in LoginFileParser (see below) to retrieve data about a specific user, as well as verify logins. 
-           Sends appropriate error responde codes if there is an issue with connection or with retrieving information.
-   Class: LoginFileParser -> A file I/O class with functionality to create a new account,
-           lookup existing account details (win/losses), validate login credentials,
-           update account information after a game is completed (win/losses). Mainly used by LoginServerBackend.
-   Class: ServerStartup -> Starts up the login server, and displays a small window to indicate that the server is running (see screenshots).
+ Class: LoginServerBackend -> A file which contains the code for the multithreaded back-end server. Uses TCP protocol and Java Server Sockets to
+         establish connections. The server uses an executor service which creates new instances of the inner class, ConnectionWorker, each time a new client                        
+         connects. The file uses the methods in LoginFileParser (see below) to retrieve data about a specific user, as well as verify logins. 
+         Sends appropriate error responde codes if there is an issue with connection or with retrieving information.
+
+ Class: LoginFileParser -> A file I/O class with functionality to create a new account,
+         lookup existing account details (win/losses), validate login credentials,
+         update account information after a game is completed (win/losses). Mainly used by LoginServerBackend.
+
+ Class: ServerStartup -> Starts up the login server, and displays a small window to indicate that the server is running (see screenshots).
 
 Testing: 
-   Class: GameTest -> Used to test the game state functions in ConnectFour class. 
+ Class: GameTest -> Used to test the game state functions in ConnectFour class. 
 
