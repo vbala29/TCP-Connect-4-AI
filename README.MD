@@ -44,6 +44,7 @@
 
 # Overview of Code    
 *Package: com.vikrambala.connectfour:*
+
   Class: ConnectFour -> Models game state, and has algorithms to check for a winner.
   
   Class: Game implements Runnable-> The entry point, where the swing application starts from.
@@ -62,6 +63,7 @@
       Will cause pop up messages to appear if error codes from the server are recieved. See com.vikrmabla.connectfour.gameserver package for more details.
 
 *Sub-Package: com.vikrambala.connectfour.accounts*
+
   Class: Login extends JFrame -> Creates window for user to login into their account
       or create a new account.
 
@@ -72,10 +74,12 @@
       Essentially allows for the gameWindow to stay hidden till a user is logged in. 
 
 *Sub-Package: com.vikrambala.connectfour.interlude*
+
   Class: InterludeWindow extends JPanel -> Displays a randomly selected cute meme
   for five seconds after the user has logged in and the "game loads."
 
 *Sub-Package: com.vikrambala.connectfour.error*
+
   Class: ErrorCode -> ErrorCode enum used in LoginFileParser to alert users to errors.
 
   Class: ErrorHandler -> Handles all error codes besides ones in LoginFileParser.
@@ -83,6 +87,7 @@
           to properly shut down JFrames.
 
 *Sub-Package: com.vikrambala.connectfour.gameserver*
+
  Class: LoginServerBackend -> A file which contains the code for the multithreaded back-end server. Uses TCP protocol and Java Server Sockets to
          establish connections. The server uses an executor service which creates new instances of the inner class, ConnectionWorker, each time a new client                        
          connects. The file uses the methods in LoginFileParser (see below) to retrieve data about a specific user, as well as verify logins. 
@@ -95,5 +100,6 @@
  Class: ServerStartup -> Starts up the login server, and displays a small window to indicate that the server is running (see screenshots).
 
 *Testing:*
+
  Class: GameTest -> Used to test the game state functions in ConnectFour class. 
 
