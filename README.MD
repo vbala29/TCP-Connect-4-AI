@@ -14,7 +14,7 @@
      In addition, the TCP LoginServer will begin running. **If the login server is not running, the client application will not allow the game to start.**
 
   2. Login with your credentials. If you don't have an account, create one. 
-      a. Credentials are alphanumeric and no more than 15 characters
+      Credentials are alphanumeric and no more than 15 characters
 
   3. Begin playing against a the AI. You are player 1, they are player 2. The status
       bar at the bottom will tell you whose turn it is. 
