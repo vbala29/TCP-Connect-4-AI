@@ -6,7 +6,7 @@
   Also contains files to run a multithreaded login server (standalone) which allows for multiple clients to login
   at the same time, and retrieve data such as number of wins/losses. The AI prints out valuation of board positions and moves 
   to the console for debugging, but this can be commented out without affecting performance. Note that user information will
-  be displayedn in the top right of the application after a successful login and retrival from the server. Error code may 
+  be displayed in the top right of the application after a successful login and retrival from the server. Error code may 
   be thrown and displayed in the form of pop up messages.
   
  Use: 
